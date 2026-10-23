@@ -1,6 +1,6 @@
 # Assignment checklist from the supplied PDF
 
-This file extracts logistics from the two-page document \`Assignment Instruction(1).pdf\`. The PDF did not provide detailed lexical grammar/token rules for the class mini-language.
+This checklist summarises logistics from the two-page document \`Assignment Instruction(1).pdf\`. The PDF does not define the detailed token grammar for the class mini-language.
 
 ## Phase 1: Scanner
 
@@ -11,13 +11,19 @@ This file extracts logistics from the two-page document \`Assignment Instruction
 - Test valid programs, malformed literals, unknown characters, comments and source locations.
 - Document build/run steps and known limitations.
 
-## Repository-wide requirements
+## Repository roles
+
+- **BIGBOYS-2:** the separate experimental development workspace and active source of truth during the scanner review/refinement period. Continue working here for now.
+- **COMPILER_GROUP_ONE:** the official, private shared submission repository requested by the assignment. It should contain all five phases and is where the full group and lecturer should be invited.
+- The lecturer email supplied in the PDF is \`emmanueldery31@gmail.com\`.
+- When transferring the work, copy reviewed source/configuration/documentation and retain accurate AI disclosures. Do not copy the experimental repository's commit history as if it were made by the group members, and don't claim AI scaffold commits as student contributions.
+
+## Repository-wide requirements for the official repository
 
 - One shared private repository for all five phases.
-- The PDF's indicated group name is \`COMPILER_GROUP_ONE\`; the prepared project was named \`BIGBOYS-2\` at the requester's direction. Confirm the name with the group/lecturer.
 - Add all group members as collaborators with write access.
-- Add lecturer email \`emmanueldery31@gmail.com\` as collaborator.
-- Commit incrementally throughout each phase; repository history is checked.
+- Add the lecturer as a collaborator.
+- Maintain visible, incremental commits throughout each phase; repository history is checked.
 - Follow the lecturer's current AI-use policy and disclosure requirements. The PDF attached to this conversation contains the older restrictive policy described in \`AI_ASSISTANCE.md\`.
 
 ## Later phase dates shown in the PDF
