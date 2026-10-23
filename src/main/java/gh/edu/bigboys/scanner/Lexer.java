@@ -5,14 +5,16 @@ import java.util.List;
 
 // AI-assistance disclosure: initial integration and scanning flow drafted with ChatGPT; index 236 owns Stage 5 Lexer + CLI integration and should review/adapt this draft against the lecturer's current policy and language specification.
 
-/** Converts source text into tokens, continuing after recoverable lexical errors. */
+/** Converts source text into tokens and records lexical diagnostics without stopping at recoverable errors. */
 public final class Lexer {
     private final String source;
     private final List<Token> tokens = new ArrayList<>();
     private final List<LexicalError> errors = new ArrayList<>();
 
+    // Track the current source offset and the start of the lexeme being scanned.
     private int start = 0;
     private int current = 0;
+    // Source coordinates are 1-based; token coordinates are captured before scanning each lexeme.
     private int line = 1;
     private int column = 1;
     private int tokenLine = 1;
@@ -23,6 +25,7 @@ public final class Lexer {
         this.source = source == null ? "" : source;
     }
 
+    /** Scans the source once and appends an EOF token at the final source position. */
     public ScanResult scanTokens() {
         if (scanned) throw new IllegalStateException("A Lexer instance can scan its source only once");
         scanned = true;
@@ -118,6 +121,7 @@ public final class Lexer {
         addError("Unterminated block comment: missing */", source.substring(start, current));
     }
 
+    /** Consumes one character and keeps the line and column counters synchronised. */
     private char advance() {
         char ch = source.charAt(current++);
         if (ch == '\n') {
@@ -147,14 +151,17 @@ public final class Lexer {
         return current >= source.length();
     }
 
+    /** Advances to {@code targetOffset} while updating the source coordinates. */
     private void consumeUntil(int targetOffset) {
         while (current < targetOffset && !isAtEnd()) advance();
     }
 
+    /** Emits a token using the original lexeme and its captured starting position. */
     private void addToken(TokenType type, Object literal) {
         tokens.add(new Token(type, source.substring(start, current), literal, tokenLine, tokenColumn));
     }
 
+    /** Associates a diagnostic with the starting position of the current lexeme. */
     private void addError(String message, String lexeme) {
         errors.add(new LexicalError(tokenLine, tokenColumn, message, lexeme));
     }
