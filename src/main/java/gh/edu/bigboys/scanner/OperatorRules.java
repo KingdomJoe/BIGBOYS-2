@@ -4,7 +4,7 @@ import java.util.Map;
 
 // AI-assistance disclosure: initial draft generated with ChatGPT; assigned contributor 230 should confirm the supported operators.
 
-/** Longest-match recognition for operators and punctuation. */
+/** Matches the longest supported operator or punctuation symbol at a source offset. */
 public final class OperatorRules {
     private static final Map<String, TokenType> SYMBOLS = Map.ofEntries(
             Map.entry("(", TokenType.LEFT_PAREN), Map.entry(")", TokenType.RIGHT_PAREN),
@@ -39,7 +39,7 @@ public final class OperatorRules {
     public record Match(TokenType type, int length) { }
 
     public static Match match(String source, int start) {
-        // Three-character forms must win over two- and one-character forms.
+        // Test longer spellings first so compound operators are not split into shorter tokens.
         for (int length = Math.min(3, source.length() - start); length >= 1; length--) {
             String candidate = source.substring(start, start + length);
             TokenType type = SYMBOLS.get(candidate);
