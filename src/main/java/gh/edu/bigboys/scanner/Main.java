@@ -9,7 +9,7 @@ import java.nio.file.Path;
 
 // AI-assistance disclosure: initial CLI draft generated with ChatGPT; index 236 owns Stage 5 Lexer + CLI integration and should review/adapt usage and diagnostics.
 
-/** Command-line entry point for the scanner. */
+/** Command-line entry point; reads source text, prints tokens and diagnostics, and returns an exit status. */
 public final class Main {
     private Main() { }
 
