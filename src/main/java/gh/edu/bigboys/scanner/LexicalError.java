@@ -2,7 +2,7 @@ package gh.edu.bigboys.scanner;
 
 // AI-assistance disclosure: initial draft generated with ChatGPT; assigned contributor 232 should review and adapt.
 
-/** A recoverable scanner diagnostic at a 1-based source position. */
+/** Records a recoverable lexical error, its message, and the 1-based source position where it was detected. */
 public record LexicalError(int line, int column, String message, String lexeme) {
     public LexicalError {
         if (line < 1 || column < 1) throw new IllegalArgumentException("line and column are 1-based");
