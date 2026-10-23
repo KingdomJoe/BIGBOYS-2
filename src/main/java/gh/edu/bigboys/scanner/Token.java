@@ -5,7 +5,7 @@ import java.util.Locale;
 
 // AI-assistance disclosure: initial draft generated with ChatGPT; assigned contributor 0228 should review and adapt.
 
-/** A token and its starting source location (1-based line and column). */
+/** Represents a token's category, original lexeme, optional literal value, and 1-based source location. */
 public record Token(TokenType type, String lexeme, Object literal, int line, int column) {
     public Token {
         if (type == null) throw new IllegalArgumentException("type must not be null");
