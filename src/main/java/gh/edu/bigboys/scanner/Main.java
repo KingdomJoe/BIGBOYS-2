@@ -7,7 +7,7 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
-// AI-assistance disclosure: initial CLI draft generated with ChatGPT; group should review usage and diagnostics.
+// AI-assistance disclosure: initial CLI draft generated with ChatGPT; index 236 owns Stage 5 Lexer + CLI integration and should review/adapt usage and diagnostics.
 
 /** Command-line entry point for the scanner. */
 public final class Main {
