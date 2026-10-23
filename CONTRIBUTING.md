@@ -1,13 +1,17 @@
 # Contributing to BIGBOYS-2
 
+## Repository role
+
+BIGBOYS-2 is the current active development workspace/source of truth for the scanner while the group reviews and refines this experimental implementation. The separate official submission repository will be named \`COMPILER_GROUP_ONE\`. Do the ongoing development here for now; transfer reviewed project files into the official repository when it is ready. Invite the full group and lecturer to the official submission repository, not this experimental workspace.
+
 ## Ground rules
 
-1. Keep all five compiler phases in this one repository.
+1. Keep the eventual official repository organised for all five compiler phases.
 2. Before work, update from \`main\`.
 3. Work on a feature branch associated with your assigned task.
 4. Make small, meaningful commits as work progresses. Do not batch an entire phase into one last-minute commit.
-5. Add tests for behavior changed and run them before requesting review.
-6. Review existing code instead of blindly accepting the generated starter. Record AI help according to the lecturer's current policy.
+5. Add or update tests for behavior changed and run the Maven suite before requesting review.
+6. Review the AI-assisted starter, understand the behavior, and record AI help according to the lecturer's current policy.
 7. Do not claim another person's work or manufacture another person's commit history.
 
 ## Standard workflow
@@ -20,7 +24,7 @@ git switch -c feature/0228-token-model
 git status
 git diff
 git add src/main/java/gh/edu/bigboys/scanner/Token.java src/main/java/gh/edu/bigboys/scanner/TokenType.java
-git commit -m "Define scanner token model"
+git commit -m "Review and refine scanner token model"
 # continue with focused changes and tests
 git push -u origin feature/0228-token-model
 \`\`\`
@@ -43,7 +47,6 @@ Replace the branch name and paths with the work you were assigned. Make more tha
 
 \`\`\`bash
 mvn clean test
-bash scripts/smoke-test.sh
 git diff --check
 git status
 \`\`\`
