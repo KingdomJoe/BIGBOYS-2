@@ -7,6 +7,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 // AI-assistance disclosure: initial test draft generated with ChatGPT; index 233 should extend and verify against the class mini-language.
+/** Checks token classification, literal decoding, error recovery, and source-position reporting. */
 class LexerTest {
     private ScanResult scan(String source) {
         return new Lexer(source).scanTokens();
