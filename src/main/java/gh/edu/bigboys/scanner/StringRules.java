@@ -2,17 +2,17 @@ package gh.edu.bigboys.scanner;
 
 // AI-assistance disclosure: initial draft generated with ChatGPT; assigned contributor 227 should review string escape rules.
 
-/** Matching and decoding rules for quoted string literals. */
+/** Recognises quoted string literals and decodes the escape sequences supported by this scanner. */
 public final class StringRules {
     private StringRules() { }
 
-    /** Length counts source characters from the opening quote, including a closing quote if present. */
+    /** Number of source characters consumed, including the opening quote and any closing quote found. */
     public record Match(int length, String value, String error) { }
 
     public static Match match(String source, int start) {
         StringBuilder value = new StringBuilder();
         String firstError = null;
-        int i = start + 1; // opening quote
+        int i = start + 1; // Skip the delimiter; the decoded value contains only the string's contents.
 
         while (i < source.length()) {
             char ch = source.charAt(i);
