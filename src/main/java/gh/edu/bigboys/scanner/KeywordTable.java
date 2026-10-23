@@ -4,7 +4,7 @@ import java.util.Map;
 
 // AI-assistance disclosure: initial draft generated with ChatGPT; assigned contributor 236 should review the keyword list against the class language.
 
-/** Exact, case-sensitive lookup for the provisional keyword set. */
+/** Maps exact, case-sensitive spellings in the provisional reserved-word list to token categories. */
 public final class KeywordTable {
     private static final Map<String, TokenType> KEYWORDS = Map.ofEntries(
             Map.entry("if", TokenType.IF),
@@ -41,7 +41,7 @@ public final class KeywordTable {
         return KEYWORDS.getOrDefault(lexeme, TokenType.IDENTIFIER);
     }
 
-    /** Return a literal value for boolean keywords, or null for other token kinds. */
+    /** Returns the Boolean value associated with {@code true} or {@code false}; other token kinds have no literal value here. */
     public static Object literalFor(TokenType type) {
         return switch (type) {
             case TRUE -> Boolean.TRUE;
