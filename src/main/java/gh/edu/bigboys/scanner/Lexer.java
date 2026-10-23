@@ -3,7 +3,7 @@ package gh.edu.bigboys.scanner;
 import java.util.ArrayList;
 import java.util.List;
 
-// AI-assistance disclosure: initial integration and scanning flow drafted with ChatGPT; the group must review this core algorithm against the lecturer's current policy and language specification.
+// AI-assistance disclosure: initial integration and scanning flow drafted with ChatGPT; index 236 owns Stage 5 Lexer + CLI integration and should review/adapt this draft against the lecturer's current policy and language specification.
 
 /** Converts source text into tokens, continuing after recoverable lexical errors. */
 public final class Lexer {
