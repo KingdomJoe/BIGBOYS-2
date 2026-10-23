@@ -2,7 +2,7 @@ package gh.edu.bigboys.scanner;
 
 // AI-assistance disclosure: initial draft generated with ChatGPT; assigned contributor 231 should review identifier rules against the class language.
 
-/** Character rules for identifiers: a letter or underscore, followed by letters, digits or underscores. */
+/** Defines the provisional identifier grammar: a Unicode letter or underscore first, followed by letters, underscores, or ASCII digits. */
 public final class IdentifierRules {
     private IdentifierRules() { }
 
