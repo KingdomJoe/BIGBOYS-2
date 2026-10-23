@@ -1,0 +1,11 @@
+// Illustrative sample for exercising the scanner only; this is not a parser/runtime test.
+int main() {
+    int count = 3;
+    string message = "hello, compiler";
+
+    if (count >= 2 && true) {
+        print(message);
+    }
+
+    return 0;
+}

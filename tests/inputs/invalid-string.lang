@@ -1,0 +1,2 @@
+// Expected scanner failure: unknown escape sequence \q.
+print("this has an unsupported escape: \q");
